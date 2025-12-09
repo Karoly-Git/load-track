@@ -1,0 +1,16 @@
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    height: 100vh;
+
+    .layout-row {
+        display: flex;
+        height: 100%;
+
+        .content {
+            width: 100%;
+            padding: 2rem;
+        }
+    }
+}

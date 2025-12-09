@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
+import "./sidebar.css";
 
 export default function Sidebar() {
     return (
-        <nav>
+        <nav className="sidebar">
             <ul>
                 <li>
                     <NavLink to="/" end>

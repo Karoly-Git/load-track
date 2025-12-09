@@ -1,0 +1,8 @@
+.dashboard-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashboard-head h2 {
+  font-size: 2rem;
+}/*# sourceMappingURL=Dashboard.css.map */

@@ -1,0 +1,29 @@
+.sidebar {
+    background-color: #143757;
+    padding: 1.5rem;
+    display: flex;
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        li {
+            display: flex;
+
+
+            a {
+                display: flex;
+                padding: 0.5rem 1rem;
+                color: white;
+                text-decoration: none;
+                border-radius: 0.25rem;
+
+                &.active {
+                    background-color: #386185;
+                }
+            }
+        }
+    }
+}
