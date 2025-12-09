@@ -1,7 +1,21 @@
-import React from 'react'
+import "./AddLorryModal.css";
 
-export default function AddLorryModal() {
+export default function AddLorryModal({ isOpen, onClose, children }) {
+    if (!isOpen) return null;
+
     return (
-        <div>AddLorryModal</div>
-    )
+        <div className="modal-overlay" onClick={onClose}>
+            <div
+                className="modal-container"
+                onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside modal
+            >
+                <button className="modal-close-btn" onClick={onClose}>
+                    ✕
+                </button>
+
+                {children}
+            </div>
+        </div>
+    );
 }
+

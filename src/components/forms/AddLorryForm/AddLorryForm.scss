@@ -1,0 +1,26 @@
+.lorry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.lorry-form h3 {
+    margin-top: 0;
+}
+
+.lorry-form input,
+.lorry-form select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.submit-btn {
+    background: #143757;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
