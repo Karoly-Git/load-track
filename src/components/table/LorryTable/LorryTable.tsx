@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import getAllLorries from "../../../api/lorries.api";
-import LorryTableRow from "../LorryTableRow/LorryTableRow";
+import LorryTableRow from "../lorryTableRow/LorryTableRow";
 import type { Lorry } from "../../../types/lorry";
 
 import "./LorryTable.css";

@@ -2,14 +2,14 @@
   background-color: #2978d0;
   border: none;
   outline: none;
-  padding: 1rem 1rem 1rem 0.5rem;
-  font-size: 1.25rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 15px;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   cursor: pointer;
 }
 .button:hover {

@@ -3,13 +3,14 @@ import Button from "../../components/ui/button/Button";
 import { GoPlus as PlusIcon } from "react-icons/go";
 
 import Modal from "../../components/ui/modal/Modal";
-import LorryTable from "../../components/table/LorryTable/LorryTable";
+import LorryTable from "../../components/table/lorryTable/LorryTable";
 import AddLorryForm from "../../components/forms/addLorryForm/AddLorryForm";
 import type { LorryData } from "../../components/forms/addLorryForm/AddLorryForm";
 
 import "./Dashboard.css";
 
 export default function Dashboard() {
+    const [userLoggedIn, setUserLoggedIn] = useState<boolean>(true);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const handleAdd = () => setIsModalOpen(true);
@@ -28,7 +29,7 @@ export default function Dashboard() {
         <div className="dashboard">
             <div className="dashboard-head">
                 <h2>Lorry Statuses</h2>
-                <Button icon={PlusIcon} text="Add Lorry" onClick={handleAdd} />
+                {userLoggedIn && <Button icon={PlusIcon} text="Add Lorry" onClick={handleAdd} />}
             </div>
 
             <LorryTable />
