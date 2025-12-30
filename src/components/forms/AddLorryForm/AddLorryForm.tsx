@@ -1,40 +1,54 @@
 import { useState } from "react";
 import "./AddLorryForm.css";
 
-// 1️⃣ Define exactly what the form outputs
-export interface LorryData {
-    lorry: string;
-    status: "Checked In" | "Loading" | "Loaded" | "Checked Out";
-    manager: string;
-    timestamp: string;
+// 1️⃣ Exact payload shape expected by the backend
+export interface AddLorryPayload {
+    regNum?: string;
+    materialName: string;
+    customerName: string;
+    collectionRefNum: string;
+    updatedBy: {
+        userId: string;
+    };
+    comment?: string;
 }
 
-// 2️⃣ Define the props for this component
+// 2️⃣ Props
 interface AddLorryFormProps {
-    onSubmit: (data: LorryData) => void;
+    onSubmit: (data: AddLorryPayload) => void;
 }
 
 export default function AddLorryForm({ onSubmit }: AddLorryFormProps) {
-    // 3️⃣ Type your state (inferred automatically here)
-    const [lorry, setLorry] = useState("");
-    const [status, setStatus] = useState<LorryData["status"]>("Checked In");
-    const [manager, setManager] = useState("");
+    // 3️⃣ Form state
+    const [regNum, setRegNum] = useState("");
+    const [materialName, setMaterialName] = useState("");
+    const [customerName, setCustomerName] = useState("");
+    const [collectionRefNum, setCollectionRefNum] = useState("");
+    const [userId, setUserId] = useState("");
+    const [comment, setComment] = useState("");
 
-    // 4️⃣ Type the form event
+    // 4️⃣ Submit handler
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         onSubmit({
-            lorry,
-            status,
-            manager,
-            timestamp: new Date().toISOString(),
+            regNum: regNum || undefined,
+            materialName,
+            customerName,
+            collectionRefNum,
+            updatedBy: {
+                userId,
+            },
+            comment: comment || undefined,
         });
 
-        // Reset form
-        setLorry("");
-        setStatus("Checked In");
-        setManager("");
+        // 5️⃣ Reset form
+        setRegNum("");
+        setMaterialName("");
+        setCustomerName("");
+        setCollectionRefNum("");
+        setUserId("");
+        setComment("");
     };
 
     return (
@@ -42,41 +56,65 @@ export default function AddLorryForm({ onSubmit }: AddLorryFormProps) {
             <h3>Add New Lorry</h3>
 
             <label>
-                Lorry Number
+                Lorry Registration Number (optional)
                 <input
                     type="text"
-                    value={lorry}
-                    onChange={(e) => setLorry(e.target.value)}
+                    value={regNum}
+                    onChange={(e) => setRegNum(e.target.value)}
+                />
+            </label>
+
+            <label>
+                Material Name
+                <input
+                    type="text"
+                    value={materialName}
+                    onChange={(e) => setMaterialName(e.target.value)}
                     required
                 />
             </label>
 
             <label>
-                Status
-                <select
-                    value={status}
-                    onChange={(e) =>
-                        setStatus(e.target.value as LorryData["status"])
-                    }
-                >
-                    <option>Checked In</option>
-                    <option>Loading</option>
-                    <option>Loaded</option>
-                    <option>Checked Out</option>
-                </select>
-            </label>
-
-            <label>
-                Manager
+                Customer Name
                 <input
                     type="text"
-                    value={manager}
-                    onChange={(e) => setManager(e.target.value)}
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
                     required
                 />
             </label>
 
-            <button type="submit" className="submit-btn">Add</button>
+            <label>
+                Collection Reference Number
+                <input
+                    type="text"
+                    value={collectionRefNum}
+                    onChange={(e) => setCollectionRefNum(e.target.value)}
+                    required
+                />
+            </label>
+
+            <label>
+                Updated By (User ID)
+                <input
+                    type="text"
+                    value={userId}
+                    onChange={(e) => setUserId(e.target.value)}
+                    required
+                />
+            </label>
+
+            <label>
+                Comment (optional)
+                <textarea
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                />
+            </label>
+
+            <button type="submit" className="submit-btn">
+                Add Lorry
+            </button>
         </form>
     );
 }
