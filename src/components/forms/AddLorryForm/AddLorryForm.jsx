@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { CUSTOMER_NAMES } from "../../../constants/customer-names";
+import { MATERIAL_NAMES } from "../../../constants/material-names";
 import "./AddLorryForm.css";
 
 export default function AddLorryForm({ onSubmit }) {
@@ -46,22 +48,40 @@ export default function AddLorryForm({ onSubmit }) {
 
             <label>
                 Material Name
-                <input
-                    type="text"
+                <select
                     value={materialName}
                     onChange={(e) => setMaterialName(e.target.value)}
                     required
-                />
+                >
+                    <option value="" disabled>
+                        Select material
+                    </option>
+
+                    {Object.entries(MATERIAL_NAMES).map(([key, value]) => (
+                        <option key={key} value={value}>
+                            {value}
+                        </option>
+                    ))}
+                </select>
             </label>
 
             <label>
                 Customer Name
-                <input
-                    type="text"
+                <select
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     required
-                />
+                >
+                    <option value="" disabled>
+                        Select customer
+                    </option>
+
+                    {Object.entries(CUSTOMER_NAMES).map(([key, value]) => (
+                        <option key={key} value={value}>
+                            {value}
+                        </option>
+                    ))}
+                </select>
             </label>
 
             <label>
