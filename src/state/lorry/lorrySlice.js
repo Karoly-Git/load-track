@@ -28,6 +28,7 @@ const lorriesSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            // Fetch all lorries
             .addCase(fetchAllLorries.pending, (state) => {
                 state.loading = true;
                 state.error = null;
@@ -40,6 +41,8 @@ const lorriesSlice = createSlice({
                 state.loading = false;
                 state.error = action.error.message || "Failed to load lorries";
             })
+
+            // Delete lorry
             .addCase(deleteLorryById.fulfilled, (state, action) => {
                 state.items = state.items.filter(
                     (lorry) => lorry.lorryId !== action.payload
