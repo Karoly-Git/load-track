@@ -24,7 +24,7 @@ export default function LorryTable() {
                 <tr>
                     <th>Material</th>
                     <th>Customer</th>
-                    <th>Ref number</th>
+                    <th>Reference</th>
                     <th>Status</th>
                 </tr>
             </thead>
