@@ -31,9 +31,10 @@ export default function LorryTableRow({ lorry }) {
             <td>
                 <button className="cell-btn material-name">
                     <div>{materialName}</div>
-                    <div>
-                        {new Date(checkedInAt).toLocaleTimeString('en-GB', { timeStyle: 'short' })}                        </div>
                 </button>
+                <div className="time-checked-in">
+                    {new Date(checkedInAt).toLocaleTimeString('en-GB', { timeStyle: 'short' })}
+                </div>
             </td>
 
             <td>
@@ -72,6 +73,6 @@ export default function LorryTableRow({ lorry }) {
                     </button>
                 )}
             </td>
-        </tr>
+        </tr >
     );
 }
