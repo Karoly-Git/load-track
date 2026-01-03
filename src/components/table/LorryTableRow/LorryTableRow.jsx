@@ -11,7 +11,7 @@ import "./LorryTableRow.css";
 
 import Modal from "../../ui/modal/Modal";
 import LorryInfo from "../../ui/modal/LorryInfo/LorryInfo";
-import UpdateStatus from "../../ui/modal/UpdateStatus/UpdateStatus";
+import UpdateStatusForm from "../../forms/updateStatusForm/UpdateStatusForm";
 
 export default function LorryTableRow({ lorry }) {
     const dispatch = useDispatch();
@@ -130,7 +130,7 @@ export default function LorryTableRow({ lorry }) {
                 </td>
                 <td>
                     <Modal isOpen={isStatusModalOpen} onClose={handleStatusClose}>
-                        <UpdateStatus lorry={lorry} onCancel={handleStatusClose} />
+                        <UpdateStatusForm lorry={lorry} onCancel={handleStatusClose} />
                     </Modal>
                 </td>
             </tr>

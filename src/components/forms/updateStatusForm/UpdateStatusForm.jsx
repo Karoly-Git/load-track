@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { LORRY_STATUSES } from "../../../../constants/lorry-statuses";
-import "./UpdateStatus.css";
-import { formatText } from "../../../../utils/formatText";
+import { LORRY_STATUSES } from "../../../constants/lorry-statuses";
+import "./UpdateStatusForm.css";
+import { formatText } from "../../../utils/formatText";
 
-export default function UpdateStatus({ lorry, onCancel }) {
+export default function UpdateStatusForm({ lorry, onCancel }) {
     const currentStatus = lorry.currentStatus;
     const [newStatus, setNewStatus] = useState("");
 
-    const statusOptions = Object.values(LORRY_STATUSES).filter(
-        (s) => s !== currentStatus
-    );
+    const statusOptions = Object.values(LORRY_STATUSES)
+        .filter((s) => s !== currentStatus);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -18,7 +17,7 @@ export default function UpdateStatus({ lorry, onCancel }) {
     }
 
     return (
-        <form className="update-status" onSubmit={handleSubmit}>
+        <form className="update-status-form" onSubmit={handleSubmit}>
             <h3>Update lorry status</h3>
 
             <label htmlFor="status-select">
